@@ -10,7 +10,7 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    //MARK: Properties
+    //MARK: Propertie
     @IBOutlet weak var finalChoiceTextField: UITextField!
     @IBOutlet weak var finalChoiceLabel: UILabel!
     
