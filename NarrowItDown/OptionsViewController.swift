@@ -25,7 +25,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
 
-    
     @IBOutlet weak var finalChoiceLabel: UILabel!
     var string1 = ""
     var string2 = ""
@@ -35,14 +34,13 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     var string6 = ""
     var finalText = ""
     
+    var userOptions = NSMutableArray()
+
     let errorString = "Oops..please enter at least 2 options."
 //    let oneOptionString1 = "Well, you didn't leave me much of a choice."
 //    let oneOptionString2 = "That choice seems pretty obvious."
-    //var string8 = "Oops..please enter at least 2 options"
+//    var string8 = "Oops..please enter at least 2 options"
     
-
-    var userOptions = NSMutableArray()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +81,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         moveTextField(textField: optionTextField1, moveDistance: -95, up: false)
         
+    // Assigns strings to text fields
         switch textField.tag {
         case 1:
             string1 = optionTextField1.text!
@@ -126,6 +125,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         UIView.commitAnimations()
     }
     
+    // Add strings to array
     @IBAction func buttonClicked() {
 
             if !string1.isEmpty {
@@ -157,17 +157,16 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
             userOptions.add(errorString)
             }
         
-
+        // Randomize strings in array
         let rand = Int(arc4random_uniform(UInt32(userOptions.count)))
-        
-         finalText = String(describing: userOptions[rand])
+        finalText = String(describing: userOptions[rand])
 
         
-        //pass to next screen
-        
+        // Pass to next screen
         performSegue(withIdentifier: "ResultViewController", sender: nil)
     }
     
+    // Clear array
     @ IBAction func clearButtonClicked () {
 
         userOptions.removeAllObjects()
@@ -188,10 +187,9 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         string5 = ""
         string6 = ""
         finalText = ""
-
     }
     
-    
+    // Allow strings to be seen by ResultViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ResultViewController {
             vc.finalText = finalText
@@ -203,17 +201,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
             vc.string5 = string5
             vc.string6 = string6
             vc.errorString = errorString
-//            vc.oneOptionString1 = oneOptionString1
         }
     }
-    
 
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//
-//    }
-
-    
+ 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true;

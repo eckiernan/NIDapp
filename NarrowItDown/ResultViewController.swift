@@ -23,9 +23,6 @@ class ResultViewController: UIViewController {
     var string5 = ""
     var string6 = ""
     var errorString = ""
-//    var oneOptionString1 = ""
-    
-    
     
     var finalText = ""
     var array = Array<Any>()
@@ -34,10 +31,9 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // Text label gets final choice from OptionsViewController
         finalChoiceLabel.text = finalText
-        
         
     }
     
@@ -49,6 +45,8 @@ class ResultViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
         
+        
+        // Clear array when back button is clicked so old options are not stored
         array.removeAll()
         array.count == 0
         
@@ -60,12 +58,9 @@ class ResultViewController: UIViewController {
         string6 = ""
         finalText = ""
         errorString = ""
- //       oneOptionString1 = ""
     
     }
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
