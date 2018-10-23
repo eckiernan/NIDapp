@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    //MARK: Propertie
+    //MARK: Properties
     @IBOutlet weak var startButton: UIButton!
     
     

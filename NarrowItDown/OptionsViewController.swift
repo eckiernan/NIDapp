@@ -11,7 +11,7 @@ import UIKit
 
 class OptionsViewController: UIViewController, UITextFieldDelegate {
     
-    //MARK: Propertie
+    //MARK: Properties
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var backToSelectionButton: UIButton!
     @IBOutlet weak var optionTextField1: UITextField!
