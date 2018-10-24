@@ -15,11 +15,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var backToSelectionButton: UIButton!
     @IBOutlet weak var optionTextField1: UITextField!
-    @IBOutlet weak var optionTextField2: UITextField!
-    @IBOutlet weak var optionTextField3: UITextField!
-    @IBOutlet weak var optionTextField4: UITextField!
-    @IBOutlet weak var optionTextField5: UITextField!
-    @IBOutlet weak var optionTextField6: UITextField!
+
     @IBOutlet weak var finalChoiceTextField: UITextField!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -27,11 +23,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var finalChoiceLabel: UILabel!
     var string1 = ""
-    var string2 = ""
-    var string3 = ""
-    var string4 = ""
-    var string5 = ""
-    var string6 = ""
     var finalText = ""
     
     var userOptions = NSMutableArray()
@@ -41,17 +32,19 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
 //    let oneOptionString2 = "That choice seems pretty obvious."
 //    var string8 = "Oops..please enter at least 2 options"
     
-
+    func addField() {
+        userOptions.add("")
+        optionNumber = userOptions.Length - 1
+        AddFieldToPage(optionNumber) // optionNumber0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        optionTextField1.delegate = self
-        optionTextField2.delegate = self
-        optionTextField3.delegate = self
-        optionTextField4.delegate = self
-        optionTextField5.delegate = self
-        optionTextField6.delegate = self
+        optionTextField1.delegate = self //?????????????
+        
+        addField()
 
     }
 
@@ -81,30 +74,14 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         moveTextField(textField: optionTextField1, moveDistance: -95, up: false)
         
-    // Assigns strings to text fields
-        switch textField.tag {
-        case 1:
-            string1 = optionTextField1.text!
-            break
-        case 2:
-            string2 = optionTextField2.text!
-            break
-        case 3:
-            string3 = optionTextField3.text!
-            break
-        case 4:
-            string4 = optionTextField4.text!
-            break
-        case 5:
-            string5 = optionTextField5.text!
-            break
-        case 6:
-            string6 = optionTextField6.text!
-            break
-        default: break
+        userOptions[currentOptionIndex] = optionTextField[currentOptionIndex]!
             
         }
     }
+
+    //  func hitReturnWhenEditing(_ textField: UITextField) {  // fires when Return is hit
+    //    textFieldDidEndEditing(textField);
+    //}
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -128,24 +105,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     // Add strings to array
     @IBAction func buttonClicked() {
 
-            if !string1.isEmpty {
-            userOptions.add(string1)
-            }
-            if !string2.isEmpty {
-            userOptions.add(string2)
-            }
-            if !string3.isEmpty {
-            userOptions.add(string3)
-            }
-            if !string4.isEmpty {
-            userOptions.add(string4)
-            }
-            if !string5.isEmpty {
-            userOptions.add(string5)
-            }
-            if !string6.isEmpty {
-            userOptions.add(string6)
-            }
             if (userOptions.count == 1) {
             NSLog("array has 1 option")
             userOptions.removeAllObjects()
@@ -174,18 +133,9 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         NSLog("Array cleared")
         
         optionTextField1.text = ""
-        optionTextField2.text = ""
-        optionTextField3.text = ""
-        optionTextField4.text = ""
-        optionTextField5.text = ""
-        optionTextField6.text = ""
         
         string1 = ""
-        string2 = ""
-        string3 = ""
-        string4 = ""
-        string5 = ""
-        string6 = ""
+
         finalText = ""
     }
     
