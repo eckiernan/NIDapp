@@ -37,14 +37,10 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     var userOptions = NSMutableArray()
 
     let errorString = "Oops..please enter at least 2 options."
-//    let oneOptionString1 = "Well, you didn't leave me much of a choice."
-//    let oneOptionString2 = "That choice seems pretty obvious."
-//    var string8 = "Oops..please enter at least 2 options"
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         optionTextField1.delegate = self
         optionTextField2.delegate = self
