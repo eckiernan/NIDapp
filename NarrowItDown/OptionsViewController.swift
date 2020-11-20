@@ -55,17 +55,6 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
 
     }
 
-//    func keypadReturn(_ textField: UITextField) -> Bool {
-//        let nextTag = textField.tag+1
-//        let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
-//
-//        if nextResponder != nil {
-//            nextResponder?.becomeFirstResponder()
-//        } else {
-//            textField.resignFirstResponder()
-//        }
-//        return false
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
